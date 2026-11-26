@@ -1,0 +1,33 @@
+:root{--ink:#16202e;--page:#f3f5f8;--card:#fff;--rule:#d3d9e2;--accent:#1d4ed8;--warn:#c0261c;--muted:#5a6676}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3,.qtext,.opt{font-family:Charter,"Iowan Old Style",Georgia,serif}
+h1{font-size:1.9rem;margin:0 0 .4rem}h2{font-size:1.35rem;margin:2.2rem 0 .2rem}
+.muted{color:var(--muted)}
+.narrow{max-width:30rem;margin:12vh auto;padding:0 1.2rem}
+.paper{max-width:46rem;margin:0 auto;padding:0 1.2rem 5rem}
+.wide{max-width:72rem;margin:2rem auto;padding:0 1.2rem}
+.bar{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.7rem 1.2rem;background:var(--card);border-bottom:1px solid var(--rule)}
+.timer{font:600 1.5rem/1 ui-monospace,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
+.timer.low{color:var(--warn)}
+.q{background:var(--card);border:1px solid var(--rule);border-radius:6px;padding:1rem 1.2rem;margin:.9rem 0}
+.qtext{margin:0 0 .7rem;white-space:pre-wrap;font-size:1.05rem}
+.opt{display:flex;gap:.6rem;align-items:flex-start;padding:.45rem .6rem;border-radius:4px;cursor:pointer}
+.opt:hover{background:var(--page)}
+textarea,input,select{font:inherit;width:100%;padding:.55rem .7rem;border:1px solid var(--rule);border-radius:4px;background:#fff;color:var(--ink)}
+select{width:auto}
+textarea{resize:vertical}
+.login{display:grid;gap:1rem;margin-top:1.5rem}
+.login label{display:grid;gap:.3rem;font-weight:600}
+button{font:inherit;padding:.5rem 1rem;border:1px solid var(--rule);background:var(--card);border-radius:4px;cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+button.big{display:block;width:100%;padding:.9rem;margin-top:2rem}
+:focus-visible{outline:3px solid #93b4ff;outline-offset:2px}
+.error{color:var(--warn);margin:0}
+.row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+table{width:100%;border-collapse:collapse;background:var(--card)}
+th,td{padding:.55rem .7rem;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top}
+.click{cursor:pointer}.click:hover{background:var(--page)}
+.mark{border-top:1px solid var(--rule);padding:.7rem 0}
+.ans{white-space:pre-wrap;background:var(--page);padding:.6rem .8rem;border-radius:4px;margin:.3rem 0 .6rem}
+@media (max-width:600px){.bar{flex-direction:column;align-items:flex-start;gap:.3rem}}
