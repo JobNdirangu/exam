@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const API = (import.meta.env.VITE_API_URL || "http://localhost:5000").replace(/\/$/, "");
+const API = (import.meta.env.VITE_API_URL || "https://modcomexam.alwaysdata.net").replace(/\/$/, "");
 
 async function api(path, { method = "GET", body, headers } = {}) {
   const r = await fetch(API + path, {
