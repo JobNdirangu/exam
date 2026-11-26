@@ -7,9 +7,20 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL", "sqlite:///exam.db")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-# CORS(app)
 
+# Enable Flask-CORS
 CORS(app, resources={r"/api/*": {"origins": "*"}})
+
+# Bulletproof preflight handler: intercepts OPTIONS before decorators run
+@app.before_request
+def handle_preflight():
+    if request.method == "OPTIONS":
+        response = jsonify()
+        response.headers.add("Access-Control-Allow-Origin", "*")
+        response.headers.add("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Teacher-Password")
+        response.headers.add("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS")
+        return response, 200
+
 db = SQLAlchemy(app)
 
 TEACHER_PASSWORD = os.environ.get("TEACHER_PASSWORD", "")
