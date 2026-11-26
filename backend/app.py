@@ -7,7 +7,13 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL", "sqlite:///exam.db")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-CORS(app)
+# CORS(app)
+@app.after_request
+def add_cors(resp):
+    resp.headers["Access-Control-Allow-Origin"] = "*"
+    resp.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization, X-Teacher-Password"
+    resp.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, OPTIONS"
+    return resp
 db = SQLAlchemy(app)
 
 TEACHER_PASSWORD = os.environ.get("TEACHER_PASSWORD", "")
